@@ -50,7 +50,7 @@ module Mastodon
     end
 
     def repository
-      ENV.fetch('GITHUB_REPOSITORY', 'TheEssem/mastodon')
+      ENV.fetch('GITHUB_REPOSITORY', 'micr0-dev/mastodon')
     end
 
     def source_base_url
