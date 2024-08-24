@@ -1,3 +1,15 @@
+# <img src="https://github.com/user-attachments/assets/95ba563a-1abd-452a-87a2-a899a59c7234" width="128"> no-portals
+
+no-portals is similar to Chuckya but with some minor tweaks here and there
+
+the list of tweaks:
+- cool name
+- we dont have portals
+- you cant use portals
+- the cake is not a lie
+
+Original Chuckya readme is below.
+
 # <img src="https://github.com/TheEssem/mastodon/raw/main/public/chuckya.svg" width="128"> Chuckya
 
 Chuckya is a close-to-upstream soft fork of Mastodon Glitch Edition (more commonly known as glitch-soc) that aims to introduce more experimental features/fixes with the goal of making the overall experience more enjoyable. Although it's mainly developed for and used on the [wetdry.world](https://wetdry.world) instance, it can be deployed by any server admin as a drop-in, backwards-compatible replacement for Mastodon.
