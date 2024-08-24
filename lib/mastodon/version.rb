@@ -25,7 +25,7 @@ module Mastodon
     end
 
     def build_metadata
-      ['chuckya', ENV.fetch('MASTODON_VERSION_METADATA', nil)].compact_blank.join('.')
+      ['no-portals', ENV.fetch('MASTODON_VERSION_METADATA', nil)].compact_blank.join('.')
     end
 
     def to_a
