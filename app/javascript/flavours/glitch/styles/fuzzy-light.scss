@@ -5,10 +5,8 @@
 @import 'modern/style';
 @import 'mastodon-light/diff';
 
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
-
 body {
-    font-family: "Tilt Warp", sans-serif;
+    font-family: sans-serif;
 
     --color-background: #ffffff;
     --color-primary: #009688;
