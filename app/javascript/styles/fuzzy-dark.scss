@@ -4,12 +4,10 @@
 @import 'application';
 @import 'modern/style';
 
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
-
 body {
-    font-family: "Tilt Warp", sans-serif;
+    font-family: sans-serif;
 
-    --color-background: #1a1a1a;
-    --color-primary: #f57c00;
-    --color-accent: #ba68c8;
+    --color-background: #000000;
+    --color-primary: #009688;
+    --color-accent: #ff4081;
 }
