@@ -1,0 +1,16 @@
+// Modifed the modern Mastodon theme by importing the variables and application styles, and then overwriting some things
+
+@import 'mastodon-light/variables';
+@import 'application';
+@import 'modern/style';
+@import 'mastodon-light/diff';
+
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+body {
+    font-family: "Tilt Warp", sans-serif;
+
+    --color-background: #ffffff;
+    --color-primary: #009688;
+    --color-accent: #ff4081;
+}
