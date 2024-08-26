@@ -1,9 +1,8 @@
 // Modifed the modern Mastodon theme by importing the variables and application styles, and then overwriting some things
 
 @import 'mastodon-light/variables';
-@import 'index';
+@import 'application';
 @import 'modern/style';
-@import 'modern/glitch-fixes';
 @import 'mastodon-light/diff';
 
 body {
