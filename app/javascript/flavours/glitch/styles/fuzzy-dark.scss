@@ -1,8 +1,9 @@
 // Modifed the modern Mastodon theme by importing the variables and application styles, and then overwriting some things
 
-@import 'mastodon/variables';
-@import 'application';
+@import 'variables';
+@import 'index';
 @import 'modern/style';
+@import 'modern/glitch-fixes';
 
 body {
     font-family: sans-serif;
