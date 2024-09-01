@@ -3,6 +3,7 @@
 no-portals is similar to Chuckya but with some minor tweaks here and there
 
 the list of tweaks:
+- special pronoun display in timeline (micr0-dev/mastodon/#1)
 - cool name
 - we dont have portals
 - you cant use portals
