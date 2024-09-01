@@ -96,7 +96,7 @@ export class DisplayName extends React.PureComponent<Props> {
       );
       suffix = (
         <span className='display-name__account'>
-          @{acct} {pronouns && ' · ' + pronouns}
+          @{acct} {pronouns && '· ' + pronouns}
         </span>
       );
     } else {
