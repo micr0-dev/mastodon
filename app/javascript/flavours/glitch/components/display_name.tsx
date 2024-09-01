@@ -12,6 +12,7 @@ interface Props {
   account?: Account;
   others?: List<Account>;
   localDomain?: string;
+  pronouns?: string;
 }
 
 export class DisplayName extends React.PureComponent<Props> {
@@ -48,7 +49,7 @@ export class DisplayName extends React.PureComponent<Props> {
   };
 
   render() {
-    const { others, localDomain } = this.props;
+    const { others, localDomain, pronouns } = this.props;
 
     let displayName: React.ReactNode,
       suffix: React.ReactNode,
@@ -93,7 +94,11 @@ export class DisplayName extends React.PureComponent<Props> {
           />
         </bdi>
       );
-      suffix = <span className='display-name__account'>@{acct}</span>;
+      suffix = (
+        <span className='display-name__account'>
+          @{acct} {pronouns && ' · ' + pronouns}
+        </span>
+      );
     } else {
       displayName = (
         <bdi>
