@@ -39,6 +39,17 @@ export default class StatusHeader extends PureComponent {
 
     const account = status.get('account');
 
+    const fields = status.getIn(['account', 'fields']);
+    let pronouns = null;
+
+    if (fields) {
+      fields.forEach(field => {
+        if (field.get('name') === 'pronouns') {
+          pronouns = field.get('value');
+        }
+      });
+    }
+
     let statusAvatar;
     if (friend === undefined || friend === null) {
       statusAvatar = <Avatar account={account} size={avatarSize} />;
@@ -60,7 +71,7 @@ export default class StatusHeader extends PureComponent {
           {statusAvatar}
         </div>
 
-        <DisplayName account={account} />
+        <DisplayName account={account} pronouns={pronouns} />
       </a>
     );
   }

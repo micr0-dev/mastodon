@@ -132,6 +132,17 @@ class DetailedStatus extends ImmutablePureComponent {
       return null;
     }
 
+    const fields = status.getIn(['account', 'fields']);
+    let pronouns = null;
+
+    if (fields) {
+      fields.forEach(field => {
+        if (field.get('name') === 'pronouns') {
+          pronouns = field.get('value');
+        }
+      });
+    }
+
     let applicationLink = '';
     let reblogLink = '';
     let favouriteLink = '';
@@ -284,7 +295,7 @@ class DetailedStatus extends ImmutablePureComponent {
       );
     }
 
-    const {statusContentProps, hashtagBar} = getHashtagBarForStatus(status);
+    const { statusContentProps, hashtagBar } = getHashtagBarForStatus(status);
     contentMedia.push(hashtagBar);
 
     return (
@@ -292,7 +303,7 @@ class DetailedStatus extends ImmutablePureComponent {
         <div ref={this.setRef} className={classNames('detailed-status', `detailed-status-${status.get('visibility')}`, { compact })} data-status-by={status.getIn(['account', 'acct'])}>
           <a href={status.getIn(['account', 'url'])} data-hover-card-account={status.getIn(['account', 'id'])} onClick={this.handleAccountClick} className='detailed-status__display-name'>
             <div className='detailed-status__display-avatar'><Avatar account={status.get('account')} size={48} /></div>
-            <DisplayName account={status.get('account')} localDomain={this.props.domain} />
+            <DisplayName account={status.get('account')} localDomain={this.props.domain} pronouns={pronouns} />
           </a>
 
           <StatusContent

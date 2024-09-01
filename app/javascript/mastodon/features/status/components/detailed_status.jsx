@@ -13,7 +13,7 @@ import { AnimatedNumber } from 'mastodon/components/animated_number';
 import { ContentWarning } from 'mastodon/components/content_warning';
 import EditedTimestamp from 'mastodon/components/edited_timestamp';
 import { getHashtagBarForStatus } from 'mastodon/components/hashtag_bar';
-import { Icon }  from 'mastodon/components/icon';
+import { Icon } from 'mastodon/components/icon';
 import PictureInPicturePlaceholder from 'mastodon/components/picture_in_picture_placeholder';
 import { VisibilityIcon } from 'mastodon/components/visibility_icon';
 import { WithRouterPropTypes } from 'mastodon/utils/react_router';
@@ -139,7 +139,18 @@ class DetailedStatus extends ImmutablePureComponent {
       return null;
     }
 
-    let media           = '';
+    const fields = status.getIn(['account', 'fields']);
+    let pronouns = null;
+
+    if (fields) {
+      fields.forEach(field => {
+        if (field.get('name') === 'pronouns') {
+          pronouns = field.get('value');
+        }
+      });
+    }
+
+    let media = '';
     let applicationLink = '';
     let reblogLink = '';
     let favouriteLink = '';
@@ -261,7 +272,7 @@ class DetailedStatus extends ImmutablePureComponent {
       );
     }
 
-    const {statusContentProps, hashtagBar} = getHashtagBarForStatus(status);
+    const { statusContentProps, hashtagBar } = getHashtagBarForStatus(status);
     const expanded = !status.get('hidden') || status.get('spoiler_text').length === 0;
 
     return (
@@ -275,7 +286,7 @@ class DetailedStatus extends ImmutablePureComponent {
           )}
           <a href={`/@${status.getIn(['account', 'acct'])}`} data-hover-card-account={status.getIn(['account', 'id'])} onClick={this.handleAccountClick} className='detailed-status__display-name'>
             <div className='detailed-status__display-avatar'><Avatar account={status.get('account')} size={46} /></div>
-            <DisplayName account={status.get('account')} localDomain={this.props.domain} />
+            <DisplayName account={status.get('account')} localDomain={this.props.domain} pronouns={pronouns} />
           </a>
 
           {status.get('spoiler_text').length > 0 && <ContentWarning text={status.getIn(['translation', 'spoilerHtml']) || status.get('spoilerHtml')} expanded={expanded} onClick={this.handleExpandedToggle} />}
