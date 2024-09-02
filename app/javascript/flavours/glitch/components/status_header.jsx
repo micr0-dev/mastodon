@@ -41,10 +41,11 @@ export default class StatusHeader extends PureComponent {
 
     const fields = status.getIn(['account', 'fields']);
     let pronouns = null;
+    const pronounFields = ['pronouns', 'pronoun', 'professional noun', 'pronoun(s)'];
 
     if (fields) {
       fields.forEach(field => {
-        if (field.get('name') === 'pronouns') {
+        if (field.get('name') && pronounFields.includes(field.get('name').toLowerCase())) {
           pronouns = field.get('value');
         }
       });
