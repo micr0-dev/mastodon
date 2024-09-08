@@ -145,8 +145,10 @@ export default class StatusList extends ImmutablePureComponent {
       )).concat(scrollableContent);
     }
 
-    if (scrollableContent && scrollableContent.length > 0) {
-      scrollableContent.push(<CakeIcon key='cake-icon' />);
+    if (scrollableContent != null) {
+      scrollableContent = scrollableContent.concat(
+        <CakeIcon />
+      );
     }
 
     return (
