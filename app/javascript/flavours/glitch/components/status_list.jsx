@@ -11,8 +11,10 @@ import { InlineFollowSuggestions } from 'flavours/glitch/features/home_timeline/
 
 import StatusContainer from '../containers/status_container';
 
+import CakeIcon from './cake';
 import { LoadGap } from './load_gap';
 import ScrollableList from './scrollable_list';
+
 
 export default class StatusList extends ImmutablePureComponent {
 
@@ -87,7 +89,7 @@ export default class StatusList extends ImmutablePureComponent {
   };
 
   render () {
-    const { statusIds, featuredStatusIds, onLoadMore, timelineId, ...other }  = this.props;
+    const { statusIds, featuredStatusIds, onLoadMore, timelineId, ...other } = this.props;
     const { isLoading, isPartial } = other;
 
     if (isPartial) {
@@ -96,7 +98,7 @@ export default class StatusList extends ImmutablePureComponent {
 
     let scrollableContent = (isLoading || statusIds.size > 0) ? (
       statusIds.map((statusId, index) => {
-        switch(statusId) {
+        switch (statusId) {
         case TIMELINE_SUGGESTIONS:
           return (
             <InlineFollowSuggestions
@@ -142,6 +144,10 @@ export default class StatusList extends ImmutablePureComponent {
         />
       )).concat(scrollableContent);
     }
+
+    scrollableContent = scrollableContent.concat(
+      <CakeIcon />
+    );
 
     return (
       <ScrollableList {...other} showLoading={isLoading && statusIds.size === 0} onLoadMore={onLoadMore && this.handleLoadOlder} ref={this.setRef}>
