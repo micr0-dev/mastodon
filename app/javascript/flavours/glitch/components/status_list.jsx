@@ -145,9 +145,7 @@ export default class StatusList extends ImmutablePureComponent {
       )).concat(scrollableContent);
     }
 
-    scrollableContent = scrollableContent.concat(
-      <CakeIcon />
-    );
+    scrollableContent.push(<CakeIcon key='cake-icon' />);
 
     return (
       <ScrollableList {...other} showLoading={isLoading && statusIds.size === 0} onLoadMore={onLoadMore && this.handleLoadOlder} ref={this.setRef}>
